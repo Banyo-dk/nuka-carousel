@@ -1,6 +1,6 @@
 {
   "name": "@banyo/nuka-carousel",
-  "version": "6.0.6",
+  "version": "6.0.7",
   "description": "Pure React Carousel",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

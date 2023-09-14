@@ -668,7 +668,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
 
     return (
       <div
-        className={'slider-container'}
+        className={'slider-container ' + props.className}
         style={{
           position: 'relative',
         }}
