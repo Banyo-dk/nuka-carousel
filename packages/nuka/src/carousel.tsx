@@ -36,6 +36,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
     const props = rawProps as InternalCarouselProps;
 
     const {
+      disabled,
       adaptiveHeight,
       adaptiveHeightAnimation,
       afterSlide,
@@ -516,7 +517,8 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
         if (
           !mobileDraggingEnabled ||
           !sliderListRef.current ||
-          !carouselRef.current
+          !carouselRef.current ||
+          disabled
         ) {
           return;
         }

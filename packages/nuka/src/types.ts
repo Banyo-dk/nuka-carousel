@@ -174,6 +174,13 @@ type RenderControls = ((props: ControlProps) => ReactNode) | null;
 export type EasingFunction = (normalizedTime: number) => number;
 
 export interface InternalCarouselProps {
+
+    /**
+     * If `true`, the carousel will be disabled.
+     * @default false
+     */
+  disabled: boolean;
+
   /**
    * If it's set to true, the carousel will adapt its height to the visible slides.
    */
