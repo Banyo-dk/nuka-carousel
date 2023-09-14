@@ -375,7 +375,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
         }
       );
 
-      if (keyCommand === null) return;
+      if (keyCommand === null || disabled) return;
 
       // At this point we know some action is going to be triggered, so we
       // preventDefault to avoid the browser interpreting the key event and
@@ -515,10 +515,10 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
     const onTouchStart = useCallback(
       (e: React.TouchEvent<HTMLDivElement>) => {
         if (
+          disabled ||
           !mobileDraggingEnabled ||
           !sliderListRef.current ||
-          !carouselRef.current ||
-          disabled
+          !carouselRef.current
         ) {
           return;
         }
@@ -534,7 +534,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
 
     const handlePointerMove = useCallback(
       (xPosition: number) => {
-        if (!isDragging) return;
+        if (!isDragging || disabled) return;
 
         const isFirstMove = prevXPosition.current === null;
         const delta =
@@ -580,6 +580,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
     const onMouseDown = useCallback(
       (e: React.MouseEvent<HTMLDivElement>) => {
         if (
+          disabled ||
           !desktopDraggingEnabled ||
           !sliderListRef.current ||
           !carouselRef.current
